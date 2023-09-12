@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".presentation.ui.fragment.FinderSceneFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contentViewLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/small_dimensions">
+
+        <!--
+                <TextView
+                    android:id="@+id/movieFinderTitleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/medium_dimensions"
+                    android:fontFamily="@font/regular"
+                    android:text="@string/movie_finder_title"
+                    android:textColor="@color/grey_500"
+                    android:textSize="22sp"
+                    app:layout_constraintTop_toTopOf="parent" />-->
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/searchMovieEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/shape_bg_rounded_top_white_grey"
+            android:fontFamily="@font/regular"
+            android:hint="@string/search_movie"
+            android:imeOptions="actionSearch|flagNoFullscreen"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:drawableEnd="@drawable/ic_icon_search"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/movieRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/small_dimensions"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchMovieEditText"
+            tools:listitem="@layout/movie_item" />
+
+        <ProgressBar
+            android:id="@+id/loadMovieProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/movieRecyclerView"
+            app:layout_constraintStart_toStartOf="@+id/movieRecyclerView"
+            app:layout_constraintTop_toBottomOf="@+id/searchMovieEditText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/emptyViewLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:visibility="gone">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/emptyImageView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_icon_empty_list"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/emptyListTextVIew"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/regular"
+            android:gravity="center"
+            android:text="@string/favorite_list_is_empty_text"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            app:layout_constraintTop_toBottomOf="@+id/emptyImageView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
